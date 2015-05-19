@@ -13,8 +13,8 @@ CREATE TABLE IF NOT EXISTS `tpa_passwords` (
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `comment` text COLLATE utf8_unicode_ci NOT NULL,
-  `added` date NOT NULL,
-  `deleted` date NOT NULL,
+  `added` datetime NOT NULL,
+  `deleted` datetime NOT NULL,
   `user_name` text COLLATE utf8_unicode_ci NOT NULL,
   `hidden` int(1) DEFAULT '0',
   PRIMARY KEY (`id`)
@@ -128,9 +128,9 @@ CREATE TABLE IF NOT EXISTS `tpa_passwords` (
  foreach ($array as $key => $item) {
   // echo $array[$key]['id'];
   echo "<form method=\"post\" name=\"pass-".$array[$key]['Pid']." \"autocomplete=off action=\"\">";
-  // ok its a dirty work arround, but at least it will prevent the passwords from deleting when hitting enter
+  // ok its a dirty work around, but at least it will prevent the passwords from deleting when hitting enter
   echo "  <INPUT type=\"image\" name=\"updpass\"  value=\"updpass\" style=\"position: absolute; left: -9999px; width: 1px; height: 1px;\"/>";
-  // end of dirty work arround.
+  // end of dirty work around.
   echo "  <tr>";
   echo "    <td><INPUT type=\"image\"      name=\"delpass\"  value=\"\" src=\"pix/tango-list-remove.png\"></td>";
   echo "    <td><input type=\"text\"       name=\"username\" value=\"".$array[$key]['username']."\"></td>";
