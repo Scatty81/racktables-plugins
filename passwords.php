@@ -130,6 +130,11 @@ CREATE TABLE IF NOT EXISTS `tpa_passwords` (
   echo "<form method=\"post\" name=\"pass-".$array[$key]['Pid']." \"autocomplete=off action=\"\">";
   // ok its a dirty work around, but at least it will prevent the passwords from deleting when hitting enter
   echo "  <INPUT type=\"image\" name=\"updpass\"  value=\"updpass\" style=\"position: absolute; left: -9999px; width: 1px; height: 1px;\"/>";
+  // and here another dirty work around, but this time from Chrome.
+  // it seems that chrome ignores autocomplete, yes...it ignores it, as workaround i have created an fake text & password field
+  // don't we just love standards....oh wait...
+  echo "   <input type=\"text\" name=\"prevent_autofill\" id=\"prevent_autofill\" value=\"\" style=\"display:none;\" />";
+  echo "   <input type=\"password\" name=\"password_fake\" id=\"password_fake\" value=\"\" style=\"display:none;\" />";
   // end of dirty work around.
   echo "  <tr>";
   echo "    <td><INPUT type=\"image\"      name=\"delpass\"  value=\"\" src=\"pix/tango-list-remove.png\"></td>";
